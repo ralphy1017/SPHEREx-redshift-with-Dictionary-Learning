@@ -140,7 +140,7 @@ print('')
 lamb_rest = np.arange(0.01,6.0,0.01)
 if eazy_templates_location[-1] != '/':
     eazy_templates_location = eazy_templates_location + '/'
-templates_EAZY = fx.load_EAZY(lamb_rest, eazy_templates_location)
+templates_EAZY = fx.load_EAZY(lamb_rest, eazy_templates_location, num_EAZY_as_dict)
 if not f_lambda_mode:
     templates_EAZY = fx.flambda2fnu(lamb_rest*10000, templates_EAZY)
 

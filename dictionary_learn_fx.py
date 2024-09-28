@@ -3,6 +3,7 @@ import pandas as pd
 from numba import jit, njit
 import matplotlib.pyplot as plt
 import time
+import os
 
 
 c = 3e18
@@ -149,10 +150,11 @@ def read_filters(filter_location):
 
 
 # Load EAZY templates
-def load_EAZY(lamb_um, eazy_templates_location):
+def load_EAZY(lamb_um, eazy_templates_location, num_dicts):
     dfs = []
-    for i in range(1,8):
-        dfi = pd.read_csv(eazy_templates_location+f'eazy_v1.1_sed{i}.dat', names=['lambda_ang','flux'], sep='\s+')
+    temps = os.listdir(eazy_templates_location) ### eazy template location should only have template spectra, num_dicts *should* be the length of files in the eazy temp location
+    for i in range(1, num_dicts):
+        dfi = pd.read_csv(eazy_templates_location+temps[i], names=['lambda_ang','flux'], sep='\s+')
         if i != 6:
             dfs.append(np.interp(lamb_um*10000, dfi['lambda_ang'], dfi['flux']/np.std(dfi['flux'])))
         else:

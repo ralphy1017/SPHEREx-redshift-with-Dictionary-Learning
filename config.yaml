@@ -20,7 +20,7 @@ Parameters:
 
 Dictionary:
   Ndict: 10                                       # Number of dictionaries to initialize
-  num_EAZY_as_dict: 7                             # Number of EAZY templates used to initialize dictionaries, 0~7
+  num_EAZY_as_dict: 12                             # Number of EAZY templates used to initialize dictionaries, 0~7
   dict_fluctuation_scaling_start: 1.0E-2          # How much smaller the first noise dictionary is compared to EAZY template, default 1e-2
   dict_fluctuation_scaling_base: 2                # Initialize dictionaries with (base)**(-1) decreasing magnitude 
   dict_scale: 1.0                                 # Additional artificial scaling for dictionaries, default 1.0
